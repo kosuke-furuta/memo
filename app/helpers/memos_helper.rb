@@ -1,2 +1,2 @@
-module TaskMemosHelper
+module MemosHelper
 end
