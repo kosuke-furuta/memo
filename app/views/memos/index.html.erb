@@ -1,0 +1,56 @@
+<% provide(:title, 'All tasks') %>
+<h1>All items</h1>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item nav-link actice" id="home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="home" aria-selected="true">
+  <%= link_to "印刷", print_path %>
+  </li>
+  <li class="nav-item nav-link actice" id="home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="home" aria-selected="true">
+  <%= link_to "ドライラミネート", drylaminate_path %>
+  </li>
+  <li class="nav-item nav-link actice" id="home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="home" aria-selected="true">
+  <%= link_to "押出しラミネート", exlaminate_path %>
+  </li>
+  <li class="nav-item nav-link actice" id="home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="home" aria-selected="true">
+  <%= link_to "スリット", slit_path %>
+  </li>
+  <li class="nav-item nav-link actice" id="home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="home" aria-selected="true">
+  <%= link_to "製袋", bagmake_path %>
+  </li>
+</ul>
+
+<table class= "table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">品名</th>
+      <th scope="col">注番</th>
+      <th scope="col">製造日</th>
+      <th scope="col">納期</th>
+      <th scope="col">手配数量</th>
+      <th scope="col">工程</th>
+      <th scope="col">備考</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @memos.each do |memo| %>
+      <tr>
+        <td scope="row"><%= link_to memo.id %></td>
+        <td><%= link_to memo.product_name, memo_path(memo) %></td>
+        <td><%= memo.order_number %></td> 
+        <td><%= memo.created_at %></td>
+        <td><%= memo.delivery_date %></td>
+        <td><%= memo.quantity %></td>
+        <td><%= memo.process %></td>
+        <td><%= memo.remarks %></td>
+        <td><%= link_to "編集", edit_memo_path(memo), class: "btn btn-primary mr-3" %>
+            <%= link_to "削除", memo, method: :delete,
+                            data: { confirm: "「#{memo.product_name}」を削除します。よろしいですか？" },
+                            class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "新規登録", new_memo_path, class: "btn btn-primary" %>

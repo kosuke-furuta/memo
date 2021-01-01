@@ -1,0 +1,23 @@
+<% provide(:title, @memo.product_name) %>
+<nav class="row justify-content-end">
+<%= link_to '製品一覧', memos_path, class: 'nav-link' %>
+  <div class="col-md-4">
+    <table class= "table table table-hover">
+      <tbody>
+        <tr><th>ID</th><td><%= @memo.id %></td></tr>
+        <tr><th>品名</th><td><%= @memo.product_name %></td></tr>
+        <tr><th>注番</th><td><%= @memo.order_number %></td></tr>
+        <tr><th>製造日</th><td><%= @memo.created_at %></td></tr>
+        <tr><th>納期</th><td><%= @memo.delivery_date %></td></tr>
+        <tr><th>手配数量</th><td><%= @memo.quantity %></td></tr>
+        <tr><th>作業工程</th><td><%= @memo.process %></td></tr>
+        <tr><th>備考</th><td><%= @memo.remarks %></td></tr>
+        <tr><th>更新日時</th><td><%= @memo.updated_at %></tr>
+        <td><%= link_to "編集", edit_memo_path, class: "btn btn-primary" %></td>
+        <td><%= link_to "削除", @memo, method: :delete,
+                            data: { confirm: "「#{@memo.product_name}」を削除します。よろしいですか？" },
+                            class: 'btn btn-danger' %></td>    
+      </tbody>
+    </table>
+  </div>
+</nav>

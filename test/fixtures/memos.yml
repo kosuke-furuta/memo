@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ProductName: MyString
+  OrderNumber: MyString
+  DeliveryDate: 2021-01-01 15:51:14
+  Quantity: 1
+  Process: MyString
+  Remarks: MyText
+
+two:
+  ProductName: MyString
+  OrderNumber: MyString
+  DeliveryDate: 2021-01-01 15:51:14
+  Quantity: 1
+  Process: MyString
+  Remarks: MyText

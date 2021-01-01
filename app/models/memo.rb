@@ -1,0 +1,2 @@
+class TaskMemo < ApplicationRecord
+end
