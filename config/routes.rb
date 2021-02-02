@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :taskmemos
+  resources :account_activations, only: [:edit]
 
   get 'print', to: 'work_process#print'
   get '/drylaminate', to: 'work_process#drylaminate'
