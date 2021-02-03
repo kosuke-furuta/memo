@@ -1,0 +1,23 @@
+<% provide(:title, @taskmemo.product_name) %>
+<nav class="row justify-content-end">
+<%= link_to '製品一覧', taskmemos_path, class: 'nav-link' %>
+  <div class="col-md-4">
+    <table class= "table table table-hover">
+      <tbody>
+        <tr><th>ID</th><td><%= @taskmemo.id %></td></tr>
+        <tr><th>品名</th><td><%= @taskmemo.product_name %></td></tr>
+        <tr><th>注番</th><td><%= @taskmemo.order_number %></td></tr>
+        <tr><th>製造日</th><td><%= @taskmemo.created_at %></td></tr>
+        <tr><th>納期</th><td><%= @taskmemo.delivery_date %></td></tr>
+        <tr><th>手配数量</th><td><%= @taskmemo.quantity %></td></tr>
+        <tr><th>作業工程</th><td><%= @taskmemo.process %></td></tr>
+        <tr><th>備考</th><td><%= @taskmemo.remarks %></td></tr>
+        <tr><th>更新日時</th><td><%= @taskmemo.updated_at %></tr>
+        <td><%= link_to "編集", edit_taskmemo_path, class: "btn btn-primary" %></td>
+        <td><%= link_to "削除", @taskmemo, method: :delete,
+                            data: { confirm: "「#{@taskmemo.product_name}」を削除します。よろしいですか？" },
+                            class: 'btn btn-danger' %></td>
+      </tbody>
+    </table>
+  </div>
+</nav>

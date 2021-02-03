@@ -1,0 +1,16 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-5">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<div class="row">
+  <aside class="col-md-5">
+  <li><%= link_to "新規登録", new_taskmemo_path, class: "btn btn-primary" %></li>
+  <li><%= link_to "製品一覧", taskmemo_path, class: "btn btn-primary" %></li>
+</div>

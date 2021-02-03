@@ -1,0 +1,239 @@
+@import '~bootstrap/scss/bootstrap';
+
+/* mixins, varibles, etc. */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* universal */
+
+body {
+    padding-top: 0px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.5; /* 行間の高さ */
+}
+
+h1 {
+  font-size: 3.2em;
+  font-weight: bolder;
+  letter-spacing: -2px; /* 行間 */
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+h2, h3 {
+  color: 222f;
+  font-size: 2.5em;
+  font-weight: bolder;
+  letter-spacing: -2px;
+  line-height: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  color: 222f;
+  font-size: 1.4em;
+  font-weight: normal;
+  letter-spacing: -1px;
+  line-height: 1.5em;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+ul {
+  margin-bottom: 10%;
+}
+
+li {
+  color: 222f;
+  font-size: 1.2em;
+  font-weight: normal;
+  letter-spacing: -1px;
+  line-height: normal;
+  margin-bottom: 20px;
+  text-align: center;
+  list-style-type: none
+}
+
+span {
+  font-weight: bolder;
+}
+
+.btn {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  color: #75A9FF;
+  letter-spacing: -2px;
+  padding-bottom: 5px;
+  font-size: 1.7em;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-family: "Tahoma";
+  &:hover {
+    color: #BAD3FF;
+    text-decoration: none;
+  }
+}
+
+header li {
+  color: #DCDCDC;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0px 5px 0px 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  &:hover {
+    color: #BAD3FF;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  border-top: 1px solid #DCDCDC;
+  margin-top: 10%;
+  padding-top: 1%;
+  color: #696969;
+  a {
+    color: #A9A9A9;	
+    &:hover {
+      color: #DCDCDC;
+      text-decoration: none;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    padding-top: 5%;
+    float: none;
+    list-style: none;
+    text-align: center;
+    li {
+      font-size: 1.2em;
+    }
+  }
+}
+
+/* sidebar */
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #DCDCDC;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+/* forms */
+
+input {
+  height: auto !important;
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #DCDCDC;
+    text-align: left;
+  }
+}
+
+/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+@media screen and (max-width:480px) {
+    body {
+        width: 180%;
+    }
+}
