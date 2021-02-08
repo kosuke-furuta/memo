@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         redirect_back_or user
       else
         message = "アカウントがアクティブ化されていません。"
-        message + = "アクティベーションリンクについては、メールを確認してください。"
+        message += "アクティベーションリンクについては、メールを確認してください。"
         flash[:warning] = message
         redirect_to root_url
       end

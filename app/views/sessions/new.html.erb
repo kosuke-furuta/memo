@@ -11,11 +11,12 @@
                                  class: 'form-control' %>
 
       <%= f.label :password, "パスワード" %>
+      <%= link_to "(パスワードをお忘れですか)", new_password_reset_path %>
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <span>このコンピューターで私を覚えておいてください</span>
       <% end %>
 
       <%= f.submit "ログイン", class: "btn btn-primary" %>
