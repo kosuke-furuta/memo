@@ -46,7 +46,7 @@ Rails.application.configure do
     :port => 587,
     :authentication => 'login',
     :user_name => Rails.application.credentials.gmail['furu.21.22@gmail.com'],
-    :password => Rails.application.credentials.gmail['lnjlgagswulukvse']
+    :password => Rails.application.credentials.gmail['wghpygewrynzspyk']
   }
 
   config.action_mailer.perform_caching = false
