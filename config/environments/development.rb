@@ -34,19 +34,18 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
-  host = 'localhost3000'
-  config.action_mailer.default_url_options = { :host => hosts }
+  config.action_mailer.default_url_options = { :host => 'localhost3000' }
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
     :address => 'smtp.gmail.com',
-    :domain => 'gmail.com',
+    :domain => 'smtp.gmail.com',
     :port => 587,
-    :authentication => 'login',
-    :user_name => Rails.application.credentials.gmail['furu.21.22@gmail.com'],
-    :password => Rails.application.credentials.gmail['wghpygewrynzspyk']
+    :authentication => 'plain',
+    :user_name => 'furu.21.22@gmail.com',
+    :password => 'wghpygewrynzspyk'
   }
 
   config.action_mailer.perform_caching = false
