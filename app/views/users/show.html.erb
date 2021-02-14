@@ -8,9 +8,18 @@
       </h1>
     </section>
   </aside>
-</div>
-<div class="row">
   <aside class="col-md-5">
   <li><%= link_to "新規登録", new_taskmemo_path, class: "btn btn-primary" %></li>
   <li><%= link_to "製品一覧", taskmemo_path, class: "btn btn-primary" %></li>
-</div>
+
+  <div class="col-md-8">
+  <% if @user.taskmemos.any? %>
+    <h3>Taskmemos (<%= @user.taskmemos.count %>)</h3>
+    <ol class="taskmemos">
+      <%= render @taskmemos %>
+    </ol>
+    <%= will_paginate @taskmemos %>
+    <% end %>
+  </div>
+</div
+>
