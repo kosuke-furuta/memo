@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+吉田太郎:
+  ProductName: 紅ショウガ
+  OrderNumber: B20100
+  DeliveryDate: <%= 10.minutes.ago %>
+  Quantity: 4000m
+  Process: 印刷/押出しラミ/スリット
+  Remarks: fixtures
+
+吉田次郎:
+  ProductName: 漬物
+  OrderNumber: B20101
+  DeliveryDate: <%= 10.minutes.ago %>
+  Quantity: 4000m
+  Process: 印刷/押出しラミ/スリット
+  Remarks: fixtures
