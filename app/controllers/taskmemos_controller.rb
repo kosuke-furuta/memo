@@ -15,7 +15,7 @@ class TaskmemosController < ApplicationController
   def create
     @taskmemo = current_user.taskmemos.build(taskmemo_params)
 
-      if @taskmemo.save
+    if @taskmemo.save
       flash[:success] = "「#{@taskmemo.product_name}」を登録しました。"
       redirect_to @taskmemo
     else
@@ -45,7 +45,7 @@ class TaskmemosController < ApplicationController
 
   def taskmemo_params
     params.require(:taskmemo).permit(:product_name, :order_number,
-                                 :delivery_date, :quantity,
-                                 :process, :remarks)
+                                    :delivery_date, :quantity,
+                                    :process, :remarks)
   end
 end
