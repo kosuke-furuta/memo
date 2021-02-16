@@ -8,8 +8,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # メインのサンプルユーザーを1人作成する
-User.create!(name: "Yoshida Taro",
-    email: "yoshida.taro@example.org",
+User.create!(name: "吉田 一郎",
+    email: "yoshida.ichiro@example.org",
     password: "password",
     password_confirmation: "password",
     # admin: true,
@@ -19,7 +19,7 @@ User.create!(name: "Yoshida Taro",
 # 追加のユーザーをまとめて生成する
 99.times do |n|
 name  = Faker::Name.name
-email = "example-#{n+1}@railstutorial.org"
+email = Faker::Internet.email
 password = "password"
 User.create!(name: name,
     email: email,
@@ -32,6 +32,28 @@ end
 # ユーザーの一部を対象にマイクロポストを生成する
 users = User.order(:created_at).take(6)
 50.times do
-    product_name = Faker::Lorem.sentence(word_count: 5)
-    users.each { |user| user.taskmemos.create!(product_name: product_name) }
+    product_name = Faker::Food.ingredient
+    order_number = Faker::String.random.(length: 6)
+    delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
+    # quantity = "quantity"
+    remarks = Faker::Lorem.sentence(word_count: 5)
+    users.each { |user| user.taskmemos.create!(product_name: product_name,
+                                                order_number: order_number,
+                                                remarks: remarks) }
 end
+
+10.times do |n|
+    product_name = Faker::Food.ingredient
+    order_number = Faker::String.random.(length: 6)
+    delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
+    quantity = "quantity"
+    process = "process"
+    remarks = "remarks"
+    Taskmemo.create!(product_name: product_name,
+        order_number: order_number,
+        delivery_date: delivery_date,
+        quantity: quantity,
+        remarks: remarks,
+        created_at: Time.zone.now,
+        updated_at: Time.zone.now)
+    end
