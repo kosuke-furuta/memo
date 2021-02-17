@@ -182,13 +182,53 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
+/* taskmemos */
+
+.taskmemos {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .remarks {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+  }
+  .gravatar_edit {
+    margin-top: 15px;
+  }
 }
 
-.gravatar_edit {
-  margin-top: 15px;
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.image {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
 }
 
 input, textarea, select, .uneditable-input {
@@ -231,7 +271,7 @@ input {
   }
 }
 
-/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+/* 画面サイズが480px以下の場合ここの記述が適用される */
 @media screen and (max-width:480px) {
     body {
         width: 180%;

@@ -9,51 +9,57 @@
 
 # メインのサンプルユーザーを1人作成する
 User.create!(name: "吉田 一郎",
-    email: "yoshida.ichiro@example.org",
-    password: "password",
-    password_confirmation: "password",
-    # admin: true,
-    activated: true,
-    activated_at: Time.zone.now)
+            email: "test@example.com",
+            password: "password",
+            password_confirmation: "password",
+            # admin: true,
+            activated: true,
+            activated_at: Time.zone.now)
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
 name  = Faker::Name.name
-email = Faker::Internet.email
+email = "test-#{n+1}@example.com"
 password = "password"
 User.create!(name: name,
-    email: email,
-    password: password,
-    password_confirmation: password,
-    activated: true,
-    activated_at: Time.zone.now)
+            email: email,
+            password: password,
+            password_confirmation: password,
+            activated: true,
+            activated_at: Time.zone.now)
 end
 
-# ユーザーの一部を対象にマイクロポストを生成する
+# 20.times do |n|
+# product_name = Faker::Food.ingredient
+# order_number = Faker::String.random(length: 6)
+# delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
+# quantity = "quantity"
+# process = "process"
+# remarks = "remarks"
+# Taskmemo.create!(product_name: product_name,
+#                order_number: order_number,
+#                delivery_date: delivery_date,
+#                quantity: quantity,
+#                process: process,
+#                remarks: remarks,
+#                created_at: Time.zone.now)
+# end
+
+# ユーザーの一部を対象タスクメモを生成する
 users = User.order(:created_at).take(6)
 50.times do
-    product_name = Faker::Food.ingredient
-    order_number = Faker::String.random.(length: 6)
-    delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
-    # quantity = "quantity"
-    remarks = Faker::Lorem.sentence(word_count: 5)
-    users.each { |user| user.taskmemos.create!(product_name: product_name,
-                                                order_number: order_number,
-                                                remarks: remarks) }
-end
-
-10.times do |n|
-    product_name = Faker::Food.ingredient
-    order_number = Faker::String.random.(length: 6)
+    product_name = Faker::Food.fruits
+    order_number = Faker::String.random(length: 6)
     delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
     quantity = "quantity"
     process = "process"
-    remarks = "remarks"
-    Taskmemo.create!(product_name: product_name,
-        order_number: order_number,
-        delivery_date: delivery_date,
-        quantity: quantity,
-        remarks: remarks,
-        created_at: Time.zone.now,
-        updated_at: Time.zone.now)
-    end
+    remarks = Faker::Lorem.sentence(word_count: 5)
+    created_at = Time.zone.now
+    users.each { |user| user.taskmemos.create!(product_name: product_name,
+                                                order_number: order_number,
+                                                delivery_date: delivery_date,
+                                                quantity: quantity,
+                                                process: process,
+                                                remarks: remarks,
+                                                created_at: Time.zone.now) }
+end

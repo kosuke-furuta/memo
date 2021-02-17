@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :users
   resources :taskmemos
   resources :account_activations, only: [:edit]
-  resources :password_resets,     only: [:new, :create, :edit, :update]
+  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :microposts, only: [:create, :destroy]
 
   get 'print', to: 'work_process#print'
   get '/drylaminate', to: 'work_process#drylaminate'
