@@ -31,8 +31,8 @@ class TaskmemosController < ApplicationController
 
   def update
     taskmemo = Taskmemo.find(params[:id])
-    taskmemo.update!(memo_params)
-    flash[:success] = "「#{@taskmemo.product_name}」を編集しました。"
+    taskmemo.update!(taskmemo_params)
+    flash[:success] = "「#{@taskmemo}」を編集しました。"
     redirect_to taskmemos_url
   end
 

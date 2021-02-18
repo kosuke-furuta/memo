@@ -1,9 +1,13 @@
 <li id="taskmemo-<%= taskmemo.id %>">
   <%= link_to gravatar_for(taskmemo.user, size: 50), taskmemo.user %>
   <span class="user"><%= link_to taskmemo.user.name, taskmemo.user %></span>
-  <!-- <span class="product_name"><%= taskmemo.product_name %></span> -->
+  <span class="product_name"><%= link_to taskmemo.product_name %></span>
+  <span class="order_number"><%= taskmemo.order_number %></span>
+  <span class="delivery_date"><%= taskmemo.delivery_date %></span>
+  <span class="quantity"><%= taskmemo.quantity %></span>
+  <span class="process"><%= taskmemo.process %></span>
   <span class="remarks"><%= taskmemo.remarks %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(taskmemo.created_at) %> ago.
+    投稿 <%= time_ago_in_words(taskmemo.created_at) %> 前
   </span>
 </li>

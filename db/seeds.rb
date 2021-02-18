@@ -54,7 +54,7 @@ users = User.order(:created_at).take(6)
     quantity = "quantity"
     process = "process"
     remarks = Faker::Lorem.sentence(word_count: 5)
-    created_at = Time.zone.now
+    created_at = Faker::Date.in_date_period(year: 2021, month: 2)
     users.each { |user| user.taskmemos.create!(product_name: product_name,
                                                 order_number: order_number,
                                                 delivery_date: delivery_date,
