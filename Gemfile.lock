@@ -60,6 +60,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (10.1.0.0)
+      execjs
     aws-eventstream (1.1.0)
     aws-partitions (1.428.0)
     aws-sdk-core (3.112.0)
@@ -80,6 +82,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.4)
@@ -96,6 +101,7 @@ GEM
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     erubi (1.10.0)
+    execjs (2.7.0)
     faker (2.16.0)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
@@ -235,7 +241,8 @@ DEPENDENCIES
   aws-sdk-s3 (= 1.46.0)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
-  bootstrap-will_paginate
+  bootstrap-sass (= 3.4.1)
+  bootstrap-will_paginate (= 1.0.0)
   byebug
   capybara (>= 2.15)
   faker
