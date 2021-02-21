@@ -10,8 +10,8 @@ local:
 amazon:
   service: S3
   access_key_id: <%= ENV['AKIAYANUIQG2JHUJH2KO'] %>
-  secret_access_key: <%= ENV'[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'] %>
-  region: <%= ENV['region=us-east-2#/users/taskmemo'] %>
+  secret_access_key: <%= ENV['3sNOHB8tugKoDDjcf+cQehoXQrnn63lkasI9v97q'] %>
+  region: <%= ENV['region=us-east-2'] %>
   bucket: your_own_bucket
 
 # Remember not to checkin your GCS keyfile to a repository
