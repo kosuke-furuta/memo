@@ -18,39 +18,3 @@
   <%= link_to "製袋", bagmake_path %>
   </li>
 </ul>
-
-<table class= "table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">品名</th>
-      <th scope="col">注番</th>
-      <th scope="col">製造日</th>
-      <th scope="col">納期</th>
-      <th scope="col">手配数量</th>
-      <th scope="col">工程</th>
-      <th scope="col">備考</th>
-      </tr>
-  </thead>
-  <tbody>
-    <% @taskmemos.each do |taskmemo| %>
-      <tr>
-        <td scope="row"><%= link_to taskmemo.id %></td>
-        <td><%= link_to taskmemo.product_name, taskmemo_path(taskmemo) %></td>
-        <td><%= taskmemo.order_number %></td>
-        <td><%= taskmemo.created_at %></td>
-        <td><%= taskmemo.delivery_date %></td>
-        <td><%= taskmemo.quantity %></td>
-        <td><%= taskmemo.process %></td>
-        <td><%= taskmemo.remarks %></td>
-        <td><%= link_to "編集", edit_taskmemo_path(taskmemo), class: "btn btn-primary mr-3" %>
-            <%= link_to "削除", taskmemo, method: :delete,
-                            data: { confirm: "「#{taskmemo.product_name}」を削除します。よろしいですか？" },
-                            class: 'btn btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "新規登録", new_taskmemo_path, class: "btn btn-primary" %>

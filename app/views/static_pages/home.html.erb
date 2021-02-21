@@ -1,40 +1,5 @@
 <% if logged_in? %>
   <%= render 'static_pages/user_logged_in' %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="taskmemo_form">
-        <%= render 'shared/taskmemo_form' %>
-      </section>
-    </aside>
-  </div>
 <% else %>
   <%= render 'static_pages/user_not_logged_in' %>
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-12 col-lg-12">
-      <div class="mx-auto">
-        <h1>Task memoで<br>納期の進捗を管理しよう</h1>
-      </div>
-      <p>さぁ始めよう！</p>
-      <li><%= link_to "サインアップ", signup_path, class: "btn btn-primary" %></li>
-      <p>ログインはこちら！</p>
-      <li><%= link_to "ログイン", login_path, class: "btn btn-primary" %></li>
-    </div>
-  </div>
-  <%= image_pack_tag 'pexels-suzy-hazelwood-1226398.jpg' %>
-  <%= render 'static_pages/about' %>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-lg-12">
-      <p>さぁ始めよう！</p>
-      <li><%= link_to "サインアップ", signup_path, class: "btn btn-primary" %></li>
-      <p>ログインはこちら！</p>
-      <li><%= link_to "ログイン", login_path, class: "btn btn-primary" %></li>
-      </div>
-    </div>
-  </div>
-</div>
 <% end %>

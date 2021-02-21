@@ -83,7 +83,6 @@ li {
   letter-spacing: -1px;
   line-height: normal;
   margin-bottom: 20px;
-  text-align: center;
   list-style-type: none
 }
 
@@ -134,7 +133,7 @@ footer {
   padding-top: 1%;
   color: #696969;
   a {
-    color: #A9A9A9;	
+    color: #A9A9A9;
     &:hover {
       color: #DCDCDC;
       text-decoration: none;
@@ -189,8 +188,8 @@ aside {
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-    }
+    border-top: 1px solid #DCDCDC;
+  }
   .user {
     margin-top: 5em;
     padding-top: 0;
@@ -204,7 +203,7 @@ aside {
     }
   }
   .timestamp {
-    color: $gray-light;
+    color:  #696969;
     display: block;
     margin-left: 60px;
   }

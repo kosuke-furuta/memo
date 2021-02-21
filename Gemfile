@@ -19,7 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
+#0 Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
@@ -56,3 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'active_storage_validations'
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
+gem 'aws-sdk-s3', '1.46.0', require: false

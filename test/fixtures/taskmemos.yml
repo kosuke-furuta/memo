@@ -1,17 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-吉田太郎:
-  ProductName: 紅ショウガ
-  OrderNumber: B20100
-  DeliveryDate: <%= 10.minutes.ago %>
-  Quantity: 4000m
-  Process: 印刷/押出しラミ/スリット
-  Remarks: fixtures
+ants:
+  remarks: "Oh, is that what you want? Because that's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: archer
 
-吉田次郎:
-  ProductName: 漬物
-  OrderNumber: B20101
-  DeliveryDate: <%= 10.minutes.ago %>
-  Quantity: 4000m
-  Process: 印刷/押出しラミ/スリット
-  Remarks: fixtures
+zone:
+  remarks: "Danger zone!"
+  created_at: <%= 3.days.ago %>
+  user: archer
+
+tone:
+  remarks: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  created_at: <%= 10.minutes.ago %>
+  user: lana
+
+van:
+  remarks: "Dude, this van's, like, rolling probable cause."
+  created_at: <%= 4.hours.ago %>
+  user: lana

@@ -80,6 +80,12 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # 試作feedの定義
+  # 完全な実装は次章「ユーザーをフォローする」を参照
+  def feed
+    Taskmemo.where("user_id = ?", id)
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
