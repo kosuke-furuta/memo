@@ -48,7 +48,7 @@ end
 # ユーザーの一部を対象タスクメモを生成する
 users = User.order(:created_at).take(6)
 50.times do
-    product_name = Faker::Food.fruits
+    product_name = Faker::Food.measurement
     order_number = Faker::String.random(length: 6)
     delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
     quantity = "quantity"
@@ -63,3 +63,11 @@ users = User.order(:created_at).take(6)
                                                 remarks: remarks,
                                                 created_at: Time.zone.now) }
 end
+
+# 以下のリレーションシップを作成する
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

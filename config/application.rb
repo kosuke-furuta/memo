@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Memo
+module Taskmemo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
@@ -16,7 +16,10 @@ module Memo
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+
     # タイムゾーンを日本時間に設定
     config.time_zone = 'Asia/Tokyo'
+    # 認証トークンをremoteフォームに埋め込む
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
