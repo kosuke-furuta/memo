@@ -9,24 +9,24 @@
 
 # メインのサンプルユーザーを1人作成する
 User.create!(name: "吉田 一郎",
-            email: "test@example.com",
-            password: "password",
-            password_confirmation: "password",
-            # admin: true,
-            activated: true,
-            activated_at: Time.zone.now)
+             email: "test@example.com",
+             password: "password",
+             password_confirmation: "password",
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
-name  = Faker::Name.name
+name = Faker::Name.name
 email = "test-#{n+1}@example.com"
 password = "password"
 User.create!(name: name,
-            email: email,
-            password: password,
-            password_confirmation: password,
-            activated: true,
-            activated_at: Time.zone.now)
+             email: email,
+             password: password,
+             password_confirmation: password,
+             activated: true,
+             activated_at: Time.zone.now)
 end
 
 # 20.times do |n|
@@ -49,19 +49,19 @@ end
 users = User.order(:created_at).take(6)
 50.times do
     product_name = Faker::Food.measurement
-    order_number = Faker::String.random(length: 6)
+    order_number = "B20100"
     delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
     quantity = "quantity"
     process = "process"
     remarks = Faker::Lorem.sentence(word_count: 5)
     created_at = Faker::Date.in_date_period(year: 2021, month: 2)
     users.each { |user| user.taskmemos.create!(product_name: product_name,
-                                                order_number: order_number,
-                                                delivery_date: delivery_date,
-                                                quantity: quantity,
-                                                process: process,
-                                                remarks: remarks,
-                                                created_at: Time.zone.now) }
+                                               order_number: order_number,
+                                               delivery_date: delivery_date,
+                                               quantity: quantity,
+                                               process: process,
+                                               remarks: remarks,
+                                               created_at: Time.zone.now) }
 end
 
 # 以下のリレーションシップを作成する

@@ -45,7 +45,7 @@ Rails.application.configure do
     :port => 587,
     :authentication => 'plain',
     :user_name => 'furu.21.22@gmail.com',
-    :password => 'wghpygewrynzspyk'
+    :password => 'lvdlklukehfnnlsj'
   }
 
   config.action_mailer.perform_caching = false
