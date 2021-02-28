@@ -7,8 +7,10 @@ class CreateMemos < ActiveRecord::Migration[6.0]
       t.integer :quantity
       t.string :process
       t.text :remarks
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
+    add_index :taskmemos, [:user_id, :created_at]
   end
 end

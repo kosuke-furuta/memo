@@ -7,7 +7,7 @@ class Taskmemo < ApplicationRecord
   validates :order_number, presence: true, length: { maximum: 6 }
   # validates :delivery_date, presence: true
   # validates :quantity, presence: true
-  # validates :remarks, presence: true
+  validates :remarks, presence: true, length: { maximum: 140 }
   validates :image, content_type: { in: %w[image/jpeg image/gif image/png],
                                     massage: "有効な画像形式である必要があります" },
                     size: { less_than: 5.megabytes,
