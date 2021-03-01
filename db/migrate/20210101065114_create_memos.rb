@@ -1,6 +1,6 @@
 class CreateMemos < ActiveRecord::Migration[6.0]
   def change
-    create_table :memos do |t|
+    create_table :taskmemos do |t|
       t.string :product_name, limit: 30, null: false
       t.string :order_number, limit: 6, null: false
       t.datetime :delivery_date

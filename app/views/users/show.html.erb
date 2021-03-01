@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-5">
+  <aside class="col-md-4">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
@@ -14,7 +14,7 @@
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.taskmemos.any? %>
-      <h3>Taskmemos (<%= @user.taskmemos.count %>)</h3>
+      <h3>製品一覧 (<%= @user.taskmemos.count %>)</h3>
       <ol class="taskmemos">
         <%= render @taskmemos %>
       </ol>

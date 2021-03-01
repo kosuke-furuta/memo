@@ -48,12 +48,12 @@ end
 # ユーザーの一部を対象タスクメモを生成する
 users = User.order(:created_at).take(6)
 50.times do
-    product_name = Faker::Food.measurement
-    order_number = "B20100"
-    delivery_date = Faker::Date.between(from: '2021-02-17', to: '2021-2-26')
-    quantity = "quantity"
-    process = "process"
-    remarks = Faker::Lorem.sentence(word_count: 5)
+    product_name = "BS皮むきポークウインナー"
+    order_number = "B20010"
+    delivery_date = "3/31"
+    quantity = "4000m"
+    process = "印刷・ラミ・スリット"
+    remarks = "在版。特になし。"
     created_at = Faker::Date.in_date_period(year: 2021, month: 2)
     users.each { |user| user.taskmemos.create!(product_name: product_name,
                                                order_number: order_number,
