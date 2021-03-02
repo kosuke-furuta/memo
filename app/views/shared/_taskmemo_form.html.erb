@@ -1,14 +1,14 @@
 <% provide(:button_text, '製品登録') %>
-<h1>製品登録</h1>
+<h1>製品登録へ</h1>
 <%= form_with(model: @taskmemo, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :product_name, "製品名" %>
-  <%= f.text_field :product_name, class: 'form-control' %>
 
   <%= f.label :order_number, "注番" %>
   <%= f.text_field :order_number, :placeholder => "B20001",
                                    class: 'form-control' %>
+
+  <%= f.label :product_name, "製品名" %>
+  <%= f.text_field :product_name, class: 'form-control' %>
 
   <%= f.label :created_at, "製造日", class: 'control-label' %>
   <%= f.date_field :created_at, class: 'form-control' %>

@@ -1,5 +1,5 @@
 <%= form_with(model: @taskmemo, local: true) do |f| %>
-  <%= render 'taskmemos_text/error_messages_taskmemos', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <%= f.label :product_name, "製品名" %>
   <%= f.text_field :product_name, class: 'form-control' %>

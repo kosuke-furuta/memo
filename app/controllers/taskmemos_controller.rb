@@ -19,11 +19,9 @@ class TaskmemosController < ApplicationController
     @taskmemo.image.attach(params[:taskmemo][:image])
     if @taskmemo.save
       flash[:success] = "「#{@taskmemo.product_name}」を登録しました。"
-      # redirect_to @taskmemo
       redirect_to root_url
     else
       @feed_items = current_user.feed.pagenate(page: params[:page])
-      # render 'taskmemo/new'
       render 'static_pages/home'
     end
   end
@@ -36,7 +34,7 @@ class TaskmemosController < ApplicationController
     taskmemo = Taskmemo.find(params[:id])
     taskmemo.update!(taskmemo_params)
     flash[:success] = "「#{@taskmemo}」を編集しました。"
-    redirect_to taskmemos_url
+    redirect_to root_url
   end
 
   def destroy

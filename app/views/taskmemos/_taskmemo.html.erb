@@ -1,13 +1,13 @@
 <li id="taskmemo-<%= taskmemo.id %>">
-<span>ID<%= link_to taskmemo.id %></span>
+  <span>ID<%= taskmemo.id %></span>
+  <span class="order_number">注番<%= taskmemo.order_number %></span>
   <span class="product_name">品名<%= link_to taskmemo.product_name,
                                                       taskmemo_path(taskmemo) %>
   </span>
-  <span class="order_number">注番<%= taskmemo.order_number %></span>
 </li>
 <li>
   <span class="created_at">製造日<%= taskmemo.created_at.strftime('%Y/%m/%d') %></span>
-  <span class="delivery_date">納期<%= taskmemo.delivery_date.strftime('%Y/%m/%d') %></span>
+  <span class="delivery_date">納期<%= taskmemo.delivery_date %></span>
   <span class="quantity">数量<%= taskmemo.quantity %></span><br>
   <span class="process">工程<%= taskmemo.process %></span>
 </li>
@@ -22,11 +22,10 @@
   <span class="timestamp">
   投稿 <%= time_ago_in_words(taskmemo.created_at) %> 前。
   </span>
-  <span><%= link_to "編集", edit_taskmemo_path(taskmemo), class: "btn btn-primary mr-3" %>
-    <% if current_user?(taskmemo.user) %>
-      <%= link_to "削除", taskmemo, method: :delete,
-                                    data: { confirm: "「#{taskmemo.product_name}」を削除します。よろしいですか？" },
-                                    class: 'btn btn-danger' %>
-    <% end %>
-  </span>
+  <% if current_user?(taskmemo.user) %>
+    <%= link_to "編集", edit_taskmemo_path(taskmemo), class: "btn btn-primary mr-3" %>
+    <%= link_to "削除", taskmemo, method: :delete,
+                                  data: { confirm: "「#{taskmemo.product_name}」を削除します。よろしいですか？" },
+                                  class: 'btn btn-danger' %>
+  <% end %>
 </li>
