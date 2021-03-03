@@ -13,10 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # namespace :admin do
-  # resources :users, only: [:index]
-  # end
-
   resources :taskmemos
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
