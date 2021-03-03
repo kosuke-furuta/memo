@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :taskmemos
+  resources :taskmemos, only: [:create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :taskmemos, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
   get 'print', to: 'work_process#print'
