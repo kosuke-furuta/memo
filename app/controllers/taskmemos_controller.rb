@@ -22,7 +22,7 @@ class TaskmemosController < ApplicationController
       flash[:success] = "「#{@taskmemo.product_name}」を登録しました。"
       redirect_to root_url
     else
-      @feed_items = current_user.feed.pagenate(page: params[:page])
+      @feed_items = taskmemo.feed.pagenate(page: params[:page])
       render 'static_pages/home'
     end
   end
@@ -46,14 +46,14 @@ class TaskmemosController < ApplicationController
 
   def following
     @title = "Following"
-    @taskmemo  = Taskmemo.find(params[:id])
+    @taskmemo = Taskmemo.find(params[:id])
     @taskmemos = @taskmemo.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "フォロワー"
-    @taskmemo  = Taskmemo.find(params[:id])
+    @taskmemo = Taskmemo.find(params[:id])
     @taskmemos = @taskmemo.followers.paginate(page: params[:page])
     render 'show_follow'
   end

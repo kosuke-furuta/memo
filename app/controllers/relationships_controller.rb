@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
 
   def create
     @taskmemo = Taskmemo.find(params[:followed_id])
-    current_user.follow(@taskmemo)
+    current_user.follow(taskmemo)
     respond_to do |format|
       format.html { redirect_to @taskmemo }
       format.js
@@ -12,7 +12,7 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @taskmemo = Relationship.find(params[:id]).followed
-    current_user.unfollow(@taskmemo)
+    current_user.unfollow(taskmemo)
     respond_to do |format|
       format.html { redirect_to @taskmemo }
       format.js

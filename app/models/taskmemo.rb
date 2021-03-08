@@ -15,7 +15,7 @@ class Taskmemo < ApplicationRecord
 
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
-                                  dependent:   :destroy
+                                  dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship",
                                    foreign_key: "followed_id",
                                    dependent: :destroy
@@ -27,17 +27,17 @@ class Taskmemo < ApplicationRecord
     image.variant(resize_to_limit: [500, 500])
   end
 
-  # タスクメモをフォローする
+  # タスクメモをお気に入りにする
   def follow(other_taskmemo)
     following << other_taskmemo
   end
 
-  # タスクメモをフォロー解除する
+  # タスクメモをお気に入りを解除する
   def unfollow(other_taskmemo)
     active_relationships.find_by(followed_id: other_taskmemo.id).destroy
   end
 
-  # 現在のユーザーがフォローしてたらtrueを返す
+  # 現在のタスクメモがお気に入りしてたらtrueを返す
   def following?(other_taskmemo)
     following.include?(other_taskmemo)
   end
