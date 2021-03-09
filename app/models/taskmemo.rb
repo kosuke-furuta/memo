@@ -13,40 +13,8 @@ class Taskmemo < ApplicationRecord
                     size: { less_than: 5.megabytes,
                             message: "5MB未満である必要があります" }
 
-  has_many :active_relationships, class_name: "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent: :destroy
-  has_many :following, through: :active_relationships, source: :followed
-  has_many :followers, through: :passive_relationships, source: :follower
-
   # 表示用のリサイズ済み画像を返す
   def display_image
     image.variant(resize_to_limit: [500, 500])
-  end
-
-  # タスクメモをお気に入りにする
-  def follow(other_taskmemo)
-    following << other_taskmemo
-  end
-
-  # タスクメモをお気に入りを解除する
-  def unfollow(other_taskmemo)
-    active_relationships.find_by(followed_id: other_taskmemo.id).destroy
-  end
-
-  # 現在のタスクメモがお気に入りしてたらtrueを返す
-  def following?(other_taskmemo)
-    following.include?(other_taskmemo)
-  end
-
-  # タスクメモのステータスフィードを返す
-  def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE follower_id = :taskmemo_id"
-    Taskmemo.where("taskmemo_id IN (#{following_ids})
-                    OR taskmemo_id = :taskmemo_id", taskmemo_id: id)
   end
 end

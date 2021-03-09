@@ -2,19 +2,19 @@ class RelationshipsController < ApplicationController
   before_action :logged_in_user
 
   def create
-    @taskmemo = Taskmemo.find(params[:followed_id])
-    current_user.follow(taskmemo)
+    @user = User.find(params[:followed_id])
+    current_user.follow(@user)
     respond_to do |format|
-      format.html { redirect_to @taskmemo }
+      format.html { redirect_to @user }
       format.js
     end
   end
 
   def destroy
-    @taskmemo = Relationship.find(params[:id]).followed
-    current_user.unfollow(taskmemo)
+    @user = Relationship.find(params[:id]).followed
+    current_user.unfollow(@user)
     respond_to do |format|
-      format.html { redirect_to @taskmemo }
+      format.html { redirect_to @user }
       format.js
     end
   end

@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home
     if logged_in?
       @taskmemo = current_user.taskmemos.build
-      @taskmemo = current_user.taskmemos.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end
 

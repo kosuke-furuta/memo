@@ -48,15 +48,15 @@ end
 # ユーザーの一部を対象タスクメモを生成する
 users = User.order(:created_at).take(6)
 50.times do
-    product_name = "BS皮むきポークウインナー"
     order_number = "B20010"
+    product_name = "BS皮むきポークウインナー"
     delivery_date = "3/31"
     quantity = "4000m"
     process = "印刷・ラミ・スリット"
     remarks = "在版。特になし。"
     created_at = Faker::Date.in_date_period(year: 2021, month: 2)
-    users.each { |user| user.taskmemos.create!(product_name: product_name,
-                                               order_number: order_number,
+    users.each { |user| user.taskmemos.create!(order_number: order_number,
+                                               product_name: product_name,
                                                delivery_date: delivery_date,
                                                quantity: quantity,
                                                process: process,
@@ -65,9 +65,9 @@ users = User.order(:created_at).take(6)
 end
 
 # 以下のリレーションシップを作成する
-taskmemos = Taskmemo.all
-taskmemo = taskmemos.first
-following = taskmemos[2..50]
-followers = taskmemos[3..40]
-following.each { |followed| taskmemo.follow(followed) }
-followers.each { |follower| follower.follow(taskmemo) }
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

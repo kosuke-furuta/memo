@@ -1,14 +1,14 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= following_taskmemo_path(@taskmemo) %>">
+  <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
-      <%= @taskmemo.following.count %>
+      <%= @user.following.count %>
     </strong>
     following
   </a>
-  <a href="<%= followers_taskmemo_path(@taskmemo) %>">
+  <a href="<%= followers_user_path(@user) %>">
     <strong id="followers" class="stat">
-      <%= @taskmemo.followers.count %>
+      <%= @user.followers.count %>
     </strong>
     フォロワー
   </a>
